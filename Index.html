@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<title>Заголовок</title>
+</head>
+<body>
+<p>Каратеев Максим 11 класс</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Физический космос знаний</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at center, #000010, #000000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 2em;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px cyan;
+    }
+    .universe {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px;
+      gap: 40px;
+    }
+    .planet {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #5bc0de, #001f3f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.4s;
+      box-shadow: 0 0 30px rgba(91,192,222,0.8);
+    }
+    .planet:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: rgba(0,0,0,0.9);
+      padding: 20px;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      width: 60%;
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      z-index: 10;
+    }
+    .popup.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .close {
+      margin-top: 15px;
+      background: cyan;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>🌌 Космос физики 🌌</header>
+  <div class="universe">
+    <div class="planet" onclick="openPopup('Механика', 'Раздел физики, изучающий движение тел и взаимодействие между ними. Формулы Ньютона — основа.')">⚙️ Механика</div>
+    <div class="planet" onclick="openPopup('Электричество', 'Электрический ток, напряжение и сопротивление. Закон Ома и электромагнитные явления.')">⚡️ Электричество</div>
+    <div class="planet" onclick="openPopup('Оптика', 'Наука о свете: преломление, отражение, линзы и зеркала. Законы Снеллиуса и Френеля.')">🔦 Оптика</div>
+    <div class="planet" onclick="openPopup('Термодинамика', 'Изучает теплоту, температуру и законы сохранения энергии. Второй закон — про энтропию.')">🔥 Термодинамика</div>
+    <div class="planet" onclick="openPopup('Астрономия', 'Физика космоса: планеты, звёзды, галактики и чёрные дыры. Закон всемирного тяготения Ньютона.')">🌠 Астрономия</div>
+  </div>
+
+  <div class="popup" id="popup">
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+    <button class="close" onclick="closePopup()">Закрыть</button>
+  </div>
+
+  <script>
+    function openPopup(title, text) {
+      document.getElementById("popupTitle").innerText = title;
+      document.getElementById("popupText").innerText = text;
+      document.getElementById("popup").classList.add("active");
+    }
+    function closePopup() {
+      document.getElementById("popup").classList.remove("active");
+    }
+  </script>
+</body>
+</html>
